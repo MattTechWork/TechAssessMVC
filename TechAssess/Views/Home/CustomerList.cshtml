@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TechAssess.Models.Customer>
+
+@{
+    ViewBag.Title = "CustomerList";
+}
+
+<h2>CustomerList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddCustomer")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SouthAfricanId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SouthAfricanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditCustomer", new { id = item.Id }) |
+                @Html.ActionLink("Details", "ViewCustomer", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteCustomer", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    <button onclick='console.log("")'>Log table</button>
+</p>
+
+@*Wasnt able to get the console.table to render the table from the scafholding i used to create the html table with data as well as getting the data*@
